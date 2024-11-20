@@ -20,7 +20,7 @@
 
 # define PI 3.14159
 # define MIN 0.001
-# define SIZE 32
+# define SIZE 16
 # define STEPS 6
 # define SIZEMINI 8
 # define SIZE_IMG 64
@@ -157,6 +157,18 @@ typedef struct s_rays
 	int		offy;
 }t_rays;
 
+typedef struct s_weapon
+{
+	void	*ptr;
+	char	*addr;
+	unsigned int *data;
+	int		bts_pxt;
+	int		endn;
+	int		len;
+	int		width;
+	int		height;
+}t_weapon;
+
 typedef struct s_big
 {
 	int			i;
@@ -170,6 +182,7 @@ typedef struct s_big
 	t_image		image;
 	t_mlx		mlx;
 	t_playerr	player;
+	t_weapon	weapon;
 }	t_big;
 
 int		*ft_aatoi(char *str, int i, int j);

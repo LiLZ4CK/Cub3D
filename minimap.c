@@ -19,13 +19,13 @@ void	print_map(int j, int i, int color, t_big *p)
 
 	i += 1;
 	j += 1;
-	i *= 60;
-	j *= 60;
-	x_next = j + 60;
-	y_next = i + 60;
+	i *= 16;
+	j *= 16;
+	x_next = j + 16;
+	y_next = i + 16;
 	while (i < y_next)
 	{
-		j = x_next - 60;
+		j = x_next - 16;
 		while (j < x_next)
 		{
 			mlx_pixel_put(p->mlx.mlx_ptr, p->mlx.win_ptr, j, i, color);

@@ -63,6 +63,9 @@ int	main(int ac, char **av)
 	p->image.addr = mlx_get_data_addr(p->image.ptr,
 			&p->image.bts_pxt, &p->image.len, &p->image.endn);
 	p->mlx.win_ptr = mlx_new_window(p->mlx.mlx_ptr, WIDTH, HEIGHT, "cub3D");
+	//p->weapon.ptr = mlx_xpm_file_to_image(p->mlx.mlx_ptr, "./img/weapon.xpm", &p->weapon.width, &p->weapon.height);
+	int weapon_x = (WIDTH - p->weapon.width) / 2; 
+	int weapon_y = HEIGHT - p->weapon.height;
 	image_init(p);
 	cast_rays(p);
 	read_map(p, -1, -4);

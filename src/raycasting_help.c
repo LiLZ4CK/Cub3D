@@ -36,6 +36,26 @@ void	get_2d_view(t_rays *ray)
 	ray->view_left = !ray->view_right;
 }
 
+void draw_weapon(t_big *data)
+{
+	//mlx_put_image_to_window(p->mlx.mlx_ptr, p->mlx.win_ptr, p->weapon.ptr, 0, 0);
+	data->weapon.ptr = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "./img/weapon.xpm", &data->weapon.width, &data->weapon.height);
+	int bpp, size_line, endian;
+	data->weapon.data = (unsigned int *)mlx_get_data_addr(data->weapon.ptr, &bpp, &size_line, &endian);
+
+	for (int y = 0; y < data->weapon.height; y++) {
+    	for (int x = 0; x < data->weapon.width; x++) {
+	        unsigned int pixel = data->weapon.data[y * data->weapon.width + x]; // Get pixel value
+
+        	// Check if the pixel is not yellow (#FFFF00)
+            // Draw the pixel on the window, adjusting for position
+    	    if (pixel != 0xFFFF00) {
+            	mlx_pixel_put(data->mlx.mlx_ptr, data->mlx.win_ptr, x + 1200 , y+339 , pixel);
+        	}
+   		}
+	}
+}
+
 void	cast_rays(t_big *data)
 {
 	int		i;
@@ -60,4 +80,5 @@ void	cast_rays(t_big *data)
 	mlx_clear_window(data->mlx.mlx_ptr, data->mlx.win_ptr);
 	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, \
 	data->image.ptr, 0, 0);
+	draw_weapon(data);
 }

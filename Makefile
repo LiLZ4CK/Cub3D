@@ -14,9 +14,8 @@ NAME := cub3D
 
 CC := @gcc
 
-FLAGS :=  -lmlx -framework OpenGL -framework AppKit
+FLAGS :=  -lmlx -lXext -lX11 -lm -lbsd	
 
-CFLAGS = -Wall -Wextra -Werror  
 
 HEADER = cub1d.h
 
@@ -52,4 +51,5 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all
+re: fclean all 
+	$(RM) $(OBJCT)

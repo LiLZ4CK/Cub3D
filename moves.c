@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "cub1d.h"
-
+#include <stdio.h>
 int	mouse_turn(int keycode, int i, int j, t_big *p)
 {
 	int	s;
@@ -59,9 +59,9 @@ int	ifmove(t_big *p, int ip, int jp)
 
 void	ft_mooove2(int keycode, t_big *p, int s)
 {
-	if (keycode == 123 || keycode == 124)
+	if (keycode == 65361 || keycode == 65363)
 	{
-		if (keycode == 124)
+		if (keycode == 65363)
 			s = -1;
 		p->player.pa -= (PI / 40) * s;
 		if ((p->player.pa - (PI / 60)) < 0)
@@ -71,13 +71,13 @@ void	ft_mooove2(int keycode, t_big *p, int s)
 		p->player.pdy = cos(p->player.pa);
 		p->player.pdx = sin(p->player.pa);
 	}
-	if (keycode == 13 && ifmove(p, ((p->map.ip + (p->player.pdx * STEPS)) \
+	if (keycode == 119 && ifmove(p, ((p->map.ip + (p->player.pdx * STEPS)) \
 	/ SIZE), (p->map.jp + (p->player.pdy * STEPS)) / SIZE))
 	{
 		p->map.ip += p->player.pdx * STEPS;
 		p->map.jp += p->player.pdy * STEPS;
 	}
-	if (keycode == 1 && ifmove(p, ((p->map.ip - (p->player.pdx * STEPS)) \
+	if (keycode == 115 && ifmove(p, ((p->map.ip - (p->player.pdx * STEPS)) \
 	/ SIZE), (p->map.jp - (p->player.pdy * STEPS)) / SIZE))
 	{
 		p->map.ip -= p->player.pdx * STEPS;
@@ -87,13 +87,13 @@ void	ft_mooove2(int keycode, t_big *p, int s)
 
 int	ft_mooove(int keycode, t_big *p)
 {
-	if (keycode == 0 && ifmove(p, ((p->map.ip - (cos(p->player.pa) * STEPS)) \
+	if (keycode == 97 && ifmove(p, ((p->map.ip - (cos(p->player.pa) * STEPS)) \
 	/ SIZE), (p->map.jp + (sin(p->player.pa) * STEPS)) / SIZE))
 	{
 		p->map.ip -= cos(p->player.pa) * STEPS;
 		p->map.jp += sin(p->player.pa) * STEPS;
 	}
-	if (keycode == 2 && ifmove(p, ((p->map.ip + (cos(p->player.pa) * STEPS)) \
+	if (keycode == 100 && ifmove(p, ((p->map.ip + (cos(p->player.pa) * STEPS)) \
 	/ SIZE), (p->map.jp - (sin(p->player.pa) * STEPS)) / SIZE))
 	{
 		p->map.ip += cos(p->player.pa) * STEPS;

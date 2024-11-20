@@ -86,20 +86,20 @@ void	mini_map(t_big *p)
 	int	i;
 	int	j;
 
-	i = 66;
+	i = 33;
 	read_map(p, -1, -4);
-	while (i < 113)
+	while (i < 44)
 	{
-		j = 66;
-		while (j < 113)
+		j = 33;
+		while (j < 44)
 			mlx_pixel_put(p->mlx.mlx_ptr, p->mlx.win_ptr, i, j++, 0x5FCDD9);
 		i++;
 	}
 	i = 0;
-	while (i < 25)
+	while (i < 11)
 	{
-		mlx_pixel_put(p->mlx.mlx_ptr, p->mlx.win_ptr, 90 + \
-		(i * cos(p->player.pa)), 90 + (i * sin(p->player.pa)), RED);
+		mlx_pixel_put(p->mlx.mlx_ptr, p->mlx.win_ptr, 37 + \
+		(i * cos(p->player.pa)), 37 + (i * sin(p->player.pa)), RED);
 		i++;
 	}
 }
